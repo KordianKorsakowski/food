@@ -1,16 +1,19 @@
-import { Footer } from '../layouts/Footer';
-import { Main } from '../layouts/Main';
-import { WrapperHome } from '../assets/HomeStyles.styles ';
+import {
+  WrapperFooter,
+  WrapperHome,
+  WrapperMain,
+} from '../assets/HomeStyles.styles ';
+import { Footer } from '../features/footer';
 
 function Home() {
   return (
     <WrapperHome>
-      <Main>
+      <WrapperMain>
         <p>czesc</p>
-      </Main>
-      <Footer>
-        <p>test</p>
-      </Footer>
+      </WrapperMain>
+      <WrapperFooter>
+        <Footer />
+      </WrapperFooter>
     </WrapperHome>
   );
 }

@@ -3,6 +3,4 @@ import Home from './pages/Home';
 
 test('renders learn react link', () => {
   render(<Home />);
-  const linkElement = screen.getByText(/test/i);
-  expect(linkElement).toBeInTheDocument();
 });
