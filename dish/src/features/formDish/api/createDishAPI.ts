@@ -10,17 +10,10 @@ export const createDishAPI = async (
     })
     .then((res) => {
       console.log(res.data);
-      callback('test');
-      if (res.status === 200) {
-        // return 'success';
-      }
-      if (res.status === 400) {
-        // return 'error';
-      }
-      // return 'cos';
+      callback('success');
     })
     .catch((err) => {
-      callback('test');
+      callback('error');
     });
   return 'test';
 };

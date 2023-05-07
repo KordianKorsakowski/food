@@ -15,10 +15,14 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
 }) => {
   const { errors, handleBlur, handleChange, handleSubmit, touched, values } =
     useFormikContext<DishDataModal>();
-  console.log(errors.submit);
   return (
     <form noValidate onSubmit={handleSubmit}>
-      <Alert severity="error">{errors.submit}</Alert>
+      {errors.submit === 'error' && (
+        <Alert severity="error">{errors.submit}</Alert>
+      )}
+      {errors.submit === 'success' && (
+        <Alert severity="success">{errors.submit}</Alert>
+      )}
       <Container>
         <h4>Create Your Dish</h4>
         <Grid container spacing={2}>
