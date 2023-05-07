@@ -13,8 +13,9 @@ import { SACALE_FOR_SPICINESS } from '../constants/constants';
 export const CreateDishFormConditionallyInputs: React.FC<
   ConditionallyProps
 > = ({ type }) => {
-  const { handleBlur, handleChange, values, touched, errors } =
+  const { handleBlur, handleChange, values, touched, errors, setFieldError } =
     useFormikContext<DishDataModal>();
+
   switch (type) {
     case 'pizza':
       return (
@@ -75,10 +76,10 @@ export const CreateDishFormConditionallyInputs: React.FC<
             label={'Slieces of bread'}
             value={values.slieces_of_bread}
             fullWidth
+            helperText={touched.slieces_of_bread && errors.slieces_of_bread}
+            error={Boolean(touched.slieces_of_bread && errors.slieces_of_bread)}
             onBlur={handleBlur}
             onChange={handleChange}
-            helperText={touched.type && errors.type}
-            error={Boolean(touched.type && errors.type)}
             required
           />
         </Grid>
