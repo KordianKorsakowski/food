@@ -35,7 +35,7 @@ export const CreateDishFormLogic = () => {
           onClick={submitHandler}
           disabled={!isValid}
         >
-          test
+          Create
         </Button>
       }
     />

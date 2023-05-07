@@ -11,11 +11,17 @@ type FormDishConfigProps = PropsWithChildren<{
 export const CreateDishFormConfig = (props: FormDishConfigProps) => {
   const { children, initialValues } = props;
   const validation = Yup.object().shape({
-    name: Yup.string().trim().required('Name is requierd'),
+    name: Yup.string().max(255).trim().required('Name is requierd'),
     preparation_time: Yup.string()
       .trim()
       .required('Preparation time is requierd'),
     type: Yup.string().trim().required('Type is requierd'),
+    diameter: Yup.number(),
+    no_of_slices: Yup.number(),
+    slieces_of_bread: Yup.number().when('type', {
+      is: 'sandwich',
+      then: Yup.number().required('Slieces of bread is requierd'),
+    }),
   });
 
   return (

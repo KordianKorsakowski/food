@@ -1,7 +1,9 @@
-import { Alert, TextField, Grid } from '@mui/material';
+import { Alert, TextField, Grid, MenuItem } from '@mui/material';
 import { DishDataModal } from '../types/types';
 import { useFormikContext } from 'formik';
 import React from 'react';
+import { CreateDishFormConditionallyInputs } from './CreateDishFormConditionallyInputs';
+import { DISH_OPTIONS } from '../constants/constants';
 
 interface FormDishBodyProps {
   submitButton: JSX.Element;
@@ -16,7 +18,7 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
   return (
     <form noValidate onSubmit={handleSubmit}>
       <Alert severity="error">Alert</Alert>
-      <h4>Formualrz</h4>
+      <h4>Create Your Dish</h4>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextField
@@ -28,6 +30,7 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
             error={Boolean(touched.name && errors.name)}
             onBlur={handleBlur}
             onChange={handleChange}
+            required
           />
         </Grid>
         <Grid item xs={12}>
@@ -40,10 +43,12 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
             error={Boolean(touched.preparation_time && errors.preparation_time)}
             onBlur={handleBlur}
             onChange={handleChange}
+            required
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
+            select
             name="type"
             label={'Type'}
             value={values.type}
@@ -52,8 +57,20 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
             error={Boolean(touched.type && errors.type)}
             onBlur={handleBlur}
             onChange={handleChange}
-          />
+            required
+          >
+            {DISH_OPTIONS.map(
+              (item: { value: string; label: string }, index: number) => (
+                <MenuItem key={index} value={item.value}>
+                  {item.label}
+                </MenuItem>
+              )
+            )}
+          </TextField>
         </Grid>
+        {values.type && (
+          <CreateDishFormConditionallyInputs type={values.type} />
+        )}
       </Grid>
       <div
         style={{
