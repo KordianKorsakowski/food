@@ -18,7 +18,7 @@ export const CreateDishFormConfig = (props: FormDishConfigProps) => {
     type: Yup.string().trim().required('Type is requierd'),
     diameter: Yup.number(),
     no_of_slices: Yup.number(),
-    slieces_of_bread: Yup.number().when('type', {
+    slices_of_bread: Yup.number().when('type', {
       is: 'sandwich',
       then: Yup.number().required('Slieces of bread is requierd'),
     }),

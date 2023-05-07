@@ -5,7 +5,8 @@ export interface DishDataModal {
   no_of_slices?: number | null;
   diameter?: number | null;
   spiciness_scale?: number;
-  slieces_of_bread?: number | null;
+  slices_of_bread?: number | null;
+  submit?: string | undefined;
 }
 
 export interface ConditionallyProps {
