@@ -21,10 +21,15 @@ food/dish> yarn start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Build
+## Build
 
 ```cmd
 food/dish> yarn build
+```
+## Test
+
+```cmd
+food/dish> yarn test
 ```
 
 ## Eslint
