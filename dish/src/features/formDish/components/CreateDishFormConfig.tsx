@@ -13,7 +13,7 @@ export const CreateDishFormConfig = (props: FormDishConfigProps) => {
   const validation = Yup.object().shape({
     name: Yup.string().max(255).trim().required('Name is requierd'),
     preparation_time: Yup.string().required(
-      'Preparation time is requierd max(23:60:60'
+      'Preparation time is requierd max value is (23:59:59)'
     ),
     type: Yup.string().trim().required('Type is requierd'),
     diameter: Yup.number(),
