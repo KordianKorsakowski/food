@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Loader } from '../../../components/loder/Loder';
 export const CreateDishFormLogic = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { values, isValid, resetForm, isSubmitting, setSubmitting, setErrors } =
+  const { values, isValid, resetForm, setSubmitting, setErrors } =
     useFormikContext<DishDataModal>();
   const setMessage = (str: string) => {
     console.log(str);

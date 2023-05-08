@@ -12,21 +12,13 @@ import { SACALE_FOR_SPICINESS } from '../constants/constants';
 import { normalizeToIntegerNumber } from '../ui/normalizeToIntegerNumber';
 import { useEffect, useState } from 'react';
 import { normalizeDecimalNumber } from '../ui/normalizeDecimalNumber';
-
-export const normalizeNumber = (value: string) => {};
+import { NumberTextFiled } from './NumberTextFiled';
 
 export const CreateDishFormConditionallyInputs: React.FC<
   ConditionallyProps
 > = ({ type }) => {
-  const {
-    handleBlur,
-    handleChange,
-    values,
-    touched,
-    errors,
-    setFieldError,
-    setFieldValue,
-  } = useFormikContext<DishDataModal>();
+  const { handleBlur, handleChange, values, touched, errors, setFieldValue } =
+    useFormikContext<DishDataModal>();
   const [diameterValue, setDiameterValue] = useState<string>('');
   useEffect(() => {
     setFieldValue('diameter', diameterValue);
@@ -55,7 +47,7 @@ export const CreateDishFormConditionallyInputs: React.FC<
             />
           </Grid>
           <Grid item xs={12}>
-            <TextField
+            <NumberTextFiled
               type="number"
               name="diameter"
               label={'Diameter'}
@@ -101,7 +93,7 @@ export const CreateDishFormConditionallyInputs: React.FC<
     case 'sandwich':
       return (
         <Grid item xs={12}>
-          <TextField
+          <NumberTextFiled
             type="number"
             name="slices_of_bread"
             label={'Slices of bread(1-30)'}
