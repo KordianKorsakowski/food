@@ -4,7 +4,7 @@ import { DishDataModal } from '../types/types';
 import { Button } from '@mui/material';
 import { createDishAPI } from '../api/createDishAPI';
 import { setPayload } from '../ui/setPayload';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Loader } from '../../../components/loder/Loder';
 export const CreateDishFormLogic = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -16,9 +16,6 @@ export const CreateDishFormLogic = () => {
       submit: str,
     });
   };
-  useEffect(() => {
-    Boolean(values.name);
-  }, [values.name]);
 
   const submitHandler = async () => {
     const data: DishDataModal | undefined = setPayload(values);
