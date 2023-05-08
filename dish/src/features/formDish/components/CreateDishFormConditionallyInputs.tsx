@@ -10,6 +10,10 @@ import { useFormikContext } from 'formik';
 import { ConditionallyProps, DishDataModal } from '../types/types';
 import { SACALE_FOR_SPICINESS } from '../constants/constants';
 import { normalizeToIntegerNumber } from '../ui/normalizeToIntegerNumber';
+import { useEffect, useState } from 'react';
+import { normalizeDecimalNumber } from '../ui/normalizeDecimalNumber';
+
+export const normalizeNumber = (value: string) => {};
 
 export const CreateDishFormConditionallyInputs: React.FC<
   ConditionallyProps
@@ -23,7 +27,10 @@ export const CreateDishFormConditionallyInputs: React.FC<
     setFieldError,
     setFieldValue,
   } = useFormikContext<DishDataModal>();
-
+  const [diameterValue, setDiameterValue] = useState<string>('');
+  useEffect(() => {
+    setFieldValue('diameter', diameterValue);
+  }, [values.diameter, setFieldValue, diameterValue]);
   switch (type) {
     case 'pizza':
       return (
@@ -50,10 +57,16 @@ export const CreateDishFormConditionallyInputs: React.FC<
               type="number"
               name="diameter"
               label={'Diameter'}
-              value={values.diameter}
+              value={diameterValue}
               fullWidth
               onBlur={handleBlur}
-              onChange={handleChange}
+              onChange={(e) => {
+                const { value } = e.target;
+                normalizeDecimalNumber({
+                  value: value,
+                  setterFn: setDiameterValue,
+                });
+              }}
             />
           </Grid>
         </>

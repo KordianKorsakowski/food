@@ -4,16 +4,8 @@ import { DishDataModal } from '../types/types';
 import { Button } from '@mui/material';
 import { createDishAPI } from '../api/createDishAPI';
 export const CreateDishFormLogic = () => {
-  const {
-    values,
-    isValid,
-    resetForm,
-    isSubmitting,
-    setSubmitting,
-    setErrors,
-    setTouched,
-    setFieldError,
-  } = useFormikContext<DishDataModal>();
+  const { values, isValid, resetForm, isSubmitting, setSubmitting, setErrors } =
+    useFormikContext<DishDataModal>();
   const setMessage = (str: string) => {
     console.log(str);
     setErrors({
@@ -22,7 +14,13 @@ export const CreateDishFormLogic = () => {
   };
   const submitHandler = async () => {
     console.log(values);
-    await createDishAPI(values, setMessage);
+    await createDishAPI(
+      {
+        ...values,
+        preparation_time: values.preparation_time.split(' ').join(':'),
+      },
+      setMessage
+    );
     setTimeout(() => {
       setSubmitting(false);
       resetForm();
