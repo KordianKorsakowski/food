@@ -6,6 +6,7 @@ import { createDishAPI } from '../api/createDishAPI';
 import { setPayload } from '../utils/setPayload';
 import { useState } from 'react';
 import { Loader } from '../../../components/ui/loder/Loder';
+import { SubmitBtn } from '../../../components/ui/submitBtn/SubmitBtn';
 export const CreateDishFormLogic = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { values, isValid, resetForm, setSubmitting, setErrors, dirty } =
@@ -38,22 +39,12 @@ export const CreateDishFormLogic = () => {
   return (
     <CreateDishFormBody
       submitButton={
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          style={{
-            width: 'auto',
-            display: 'flex',
-            gap: '1rem',
-          }}
-          onClick={submitHandler}
+        <SubmitBtn
           disabled={!(isValid && dirty)}
-        >
-          {isLoading && <Loader size="2rem" />}
-          Create
-        </Button>
+          submitFn={submitHandler}
+          isLoading={isLoading}
+          text={'Create'}
+        />
       }
     />
   );
