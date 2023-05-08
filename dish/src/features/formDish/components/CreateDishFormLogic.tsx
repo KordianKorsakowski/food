@@ -3,9 +3,9 @@ import { CreateDishFormBody } from './CreateDishFormBody';
 import { DishDataModal } from '../types/types';
 import { Button } from '@mui/material';
 import { createDishAPI } from '../api/createDishAPI';
-import { setPayload } from '../ui/setPayload';
+import { setPayload } from '../utils/setPayload';
 import { useState } from 'react';
-import { Loader } from '../../../components/loder/Loder';
+import { Loader } from '../../../components/ui/loder/Loder';
 export const CreateDishFormLogic = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { values, isValid, resetForm, setSubmitting, setErrors, dirty } =

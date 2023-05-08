@@ -9,9 +9,9 @@ import {
 import { useFormikContext } from 'formik';
 import { ConditionallyProps, DishDataModal } from '../types/types';
 import { SACALE_FOR_SPICINESS } from '../constants/constants';
-import { normalizeToIntegerNumber } from '../ui/normalizeToIntegerNumber';
+import { normalizeToIntegerNumber } from '../utils/normalizeToIntegerNumber';
 import { useEffect, useState } from 'react';
-import { normalizeDecimalNumber } from '../ui/normalizeDecimalNumber';
+import { normalizeDecimalNumber } from '../utils/normalizeDecimalNumber';
 import { NumberTextFiled } from './NumberTextFiled';
 
 export const CreateDishFormConditionallyInputs: React.FC<

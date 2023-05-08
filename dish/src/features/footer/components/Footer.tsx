@@ -1,4 +1,4 @@
-import { getCurrentYear } from '../ui/getCurrentYear';
+import { getCurrentYear } from '../utils/getCurrentYear';
 import { Contact, Container, Item } from '../style/FooterStyles.styles';
 
 const Footer = () => {

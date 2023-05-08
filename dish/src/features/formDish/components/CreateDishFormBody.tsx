@@ -5,7 +5,7 @@ import React from 'react';
 import { CreateDishFormConditionallyInputs } from './CreateDishFormConditionallyInputs';
 import { DISH_OPTIONS } from '../constants/constants';
 import { Container } from '../style/CreateDishFormStyle.styles';
-import { normalizePrepTime } from '../ui/normalizePrepTime';
+import { normalizePrepTime } from '../utils/normalizePrepTime';
 
 interface FormDishBodyProps {
   submitButton: JSX.Element;

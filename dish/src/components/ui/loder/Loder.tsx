@@ -1,5 +1,5 @@
 import { CircularProgress } from '@mui/material';
-import { colors } from '../../theme/colors';
+import { colors } from '../../../theme/colors';
 import { WrapperLoder } from './LoderStyles.styles';
 
 interface LoaderProps {
