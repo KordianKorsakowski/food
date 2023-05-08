@@ -1,10 +1,11 @@
 import { Alert, TextField, Grid, MenuItem } from '@mui/material';
 import { DishDataModal } from '../types/types';
 import { useFormikContext } from 'formik';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CreateDishFormConditionallyInputs } from './CreateDishFormConditionallyInputs';
 import { DISH_OPTIONS } from '../constants/constants';
 import { Container } from '../style/CreateDishFormStyle.styles';
+import { normalizePrepTime } from '../ui/normalizePrepTime';
 
 interface FormDishBodyProps {
   submitButton: JSX.Element;
@@ -13,8 +14,15 @@ interface FormDishBodyProps {
 export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
   submitButton,
 }) => {
-  const { errors, handleBlur, handleChange, handleSubmit, touched, values } =
-    useFormikContext<DishDataModal>();
+  const {
+    errors,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    touched,
+    values,
+    setFieldValue,
+  } = useFormikContext<DishDataModal>();
 
   return (
     <form noValidate onSubmit={handleSubmit}>
@@ -42,7 +50,7 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
           </Grid>
           <Grid item xs={12}>
             <TextField
-              type="time"
+              type="string"
               name="preparation_time"
               label={'Preparation time'}
               value={values.preparation_time}
@@ -52,8 +60,12 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
                 touched.preparation_time && errors.preparation_time
               )}
               onBlur={handleBlur}
-              onChange={handleChange}
+              onChange={(e) => {
+                const { value } = e.target;
+                setFieldValue('preparation_time', normalizePrepTime(value));
+              }}
               required
+              placeholder="00 00 00"
             />
           </Grid>
           <Grid item xs={12}>

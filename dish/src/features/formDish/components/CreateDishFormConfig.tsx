@@ -12,9 +12,9 @@ export const CreateDishFormConfig = (props: FormDishConfigProps) => {
   const { children, initialValues } = props;
   const validation = Yup.object().shape({
     name: Yup.string().max(255).trim().required('Name is requierd'),
-    preparation_time: Yup.string()
-      .trim()
-      .required('Preparation time is requierd'),
+    preparation_time: Yup.string().required(
+      'Preparation time is requierd max(23:60:60'
+    ),
     type: Yup.string().trim().required('Type is requierd'),
     diameter: Yup.number(),
     no_of_slices: Yup.number(),
