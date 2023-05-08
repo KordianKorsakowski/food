@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { DishDataModal } from '../types/types';
 export const createDishAPI = async (
-  data: DishDataModal,
+  payload: DishDataModal,
   callback: (str: string) => void
 ) => {
   await axios
     .post('https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/', {
-      ...data,
+      ...payload,
     })
     .then((res) => {
       console.log(res.data);

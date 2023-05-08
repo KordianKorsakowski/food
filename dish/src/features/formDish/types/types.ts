@@ -1,7 +1,8 @@
+export type DishType = 'pizza' | 'soup' | 'sandwich';
 export interface DishDataModal {
   name: string;
   preparation_time: string;
-  type: 'pizza' | 'soup' | 'sandwich' | '';
+  type: DishType | '';
   no_of_slices?: number | null;
   diameter?: number;
   spiciness_scale?: number;
@@ -10,5 +11,5 @@ export interface DishDataModal {
 }
 
 export interface ConditionallyProps {
-  type: 'pizza' | 'soup' | 'sandwich';
+  type: DishType;
 }

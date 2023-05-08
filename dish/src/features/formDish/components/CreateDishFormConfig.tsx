@@ -16,11 +16,21 @@ export const CreateDishFormConfig = (props: FormDishConfigProps) => {
       'Preparation time is requierd max value is (23:59:59)'
     ),
     type: Yup.string().trim().required('Type is requierd'),
-    diameter: Yup.number(),
-    no_of_slices: Yup.number(),
+    diameter: Yup.number().when('type', {
+      is: 'pizza',
+      then: Yup.number().required('Diameter of pizza is requierd'),
+    }),
+    no_of_slices: Yup.number().when('type', {
+      is: 'pizza',
+      then: Yup.number().required('Number of slieces is requierd'),
+    }),
     slices_of_bread: Yup.number().when('type', {
       is: 'sandwich',
       then: Yup.number().required('Slieces of bread is requierd'),
+    }),
+    spiciness_scale: Yup.number().when('type', {
+      is: 'soup',
+      then: Yup.number().required('Spiciness of soup is requierd'),
     }),
   });
 

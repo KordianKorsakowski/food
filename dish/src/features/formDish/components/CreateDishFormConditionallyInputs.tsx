@@ -43,6 +43,8 @@ export const CreateDishFormConditionallyInputs: React.FC<
               value={values.no_of_slices}
               fullWidth
               onBlur={handleBlur}
+              helperText={touched.no_of_slices && errors.no_of_slices}
+              error={Boolean(touched.no_of_slices && errors.no_of_slices)}
               onChange={(e) => {
                 const { value } = e.target;
                 setFieldValue(
@@ -60,6 +62,8 @@ export const CreateDishFormConditionallyInputs: React.FC<
               value={diameterValue}
               fullWidth
               onBlur={handleBlur}
+              helperText={touched.diameter && errors.diameter}
+              error={Boolean(touched.diameter && errors.diameter)}
               onChange={(e) => {
                 const { value } = e.target;
                 normalizeDecimalNumber({
@@ -74,7 +78,7 @@ export const CreateDishFormConditionallyInputs: React.FC<
     case 'soup':
       return (
         <Grid item xs={12}>
-          <FormLabel>Spiciness scale</FormLabel>
+          <FormLabel>Spiciness scale *</FormLabel>
           <RadioGroup
             name="spiciness_scale"
             value={values.spiciness_scale}

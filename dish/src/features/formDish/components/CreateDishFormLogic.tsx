@@ -3,6 +3,7 @@ import { CreateDishFormBody } from './CreateDishFormBody';
 import { DishDataModal } from '../types/types';
 import { Button } from '@mui/material';
 import { createDishAPI } from '../api/createDishAPI';
+import { setPayload } from '../ui/setPayload';
 export const CreateDishFormLogic = () => {
   const { values, isValid, resetForm, isSubmitting, setSubmitting, setErrors } =
     useFormikContext<DishDataModal>();
@@ -13,14 +14,15 @@ export const CreateDishFormLogic = () => {
     });
   };
   const submitHandler = async () => {
-    console.log(values);
-    await createDishAPI(
-      {
-        ...values,
-        preparation_time: values.preparation_time.split(' ').join(':'),
-      },
-      setMessage
-    );
+    const data: DishDataModal | undefined = setPayload(values);
+    if (data) {
+      await createDishAPI(
+        {
+          ...data,
+        },
+        setMessage
+      );
+    }
     setTimeout(() => {
       setSubmitting(false);
       resetForm();
