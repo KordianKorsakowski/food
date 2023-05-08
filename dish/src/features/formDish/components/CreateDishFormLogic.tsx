@@ -22,12 +22,11 @@ export const CreateDishFormLogic = () => {
   };
   const submitHandler = async () => {
     console.log(values);
-    const res = await createDishAPI(values, setMessage);
-    console.log(res);
+    await createDishAPI(values, setMessage);
     setTimeout(() => {
       setSubmitting(false);
-      // resetForm();
-    }, 0);
+      resetForm();
+    }, 2000);
   };
   return (
     <CreateDishFormBody

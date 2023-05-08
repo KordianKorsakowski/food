@@ -15,6 +15,7 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
 }) => {
   const { errors, handleBlur, handleChange, handleSubmit, touched, values } =
     useFormikContext<DishDataModal>();
+
   return (
     <form noValidate onSubmit={handleSubmit}>
       {errors.submit === 'error' && (
@@ -41,6 +42,7 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
           </Grid>
           <Grid item xs={12}>
             <TextField
+              type="time"
               name="preparation_time"
               label={'Preparation time'}
               value={values.preparation_time}
