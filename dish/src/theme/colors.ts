@@ -3,4 +3,5 @@ export const colors = {
   secondColorBg: '#2b2d42',
   firstColorFont: '#000',
   secondColorFont: '#fff',
+  loderColor: '#fff',
 } as const;
