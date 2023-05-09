@@ -59,3 +59,20 @@ Check prettier:
 ```cmd
 food/dish> yarn lint-check
 ```
+
+## Task Time (all ~ 13-16h)
+1/ Setting up eslint, prettier, tsconfig, etc. - 2h
+2/ Project structure - 1h
+3/ Add Global styles - 0.1h
+4/ Creating a simple layout with basic CSS wrappers - 0.4h
+5/ Add Footer - 1h
+6/ Implementing a form (using Formik + Yup) with basic fields - 3h
+7/ Implementing form fields based on the type of dish - 2h
+8/ Handling form field values and displaying them using normalizers - 2h
+9/ Testing - 0.1h
+10/ Creating an API endpoint - 0.3h
+11/ Responsive web design - 0.1h
+12/ Add Loader - 0.2h
+13/ Add SubmitBtn - 0.2h
+14/ Handling responses and errors - 2h
+15/ Add AlertForm - 0.2h
