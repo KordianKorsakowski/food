@@ -2,7 +2,8 @@
 
 Currently used and tested, stable Nodejs version - 16.15.1
 Stack - Typescript, React.js, Formik, Yup, Axios, React Testing Library, Jest, Material UI, styled-components
-Hosting - ...
+Hosting - Netlify
+[page](https://kaleidoscopic-medovik-7daf4f.netlify.app)
 
 (To enable yarn in Node.js >= 16.10):
 ## General Info 
