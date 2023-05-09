@@ -5,7 +5,7 @@ import { createDishAPI } from '../api/createDishAPI';
 import { setPayload } from '../utils/setPayload';
 import { useState } from 'react';
 import { SubmitBtn } from '../../../components/ui/form/submitBtn/SubmitBtn';
-import { AlertForm } from '../../../components/ui/form/Alert';
+import { AlertForm } from '../../../components/ui/form/AlertForm';
 export const CreateDishFormLogic = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isAlertMessage, setIsAlertMessage] = useState<AlertData | null>(null);
@@ -23,13 +23,13 @@ export const CreateDishFormLogic = () => {
         setIsAlertMessage
       ).finally(() => {
         setIsLoading(false);
+        setSubmitting(false);
+        resetForm();
       });
     }
     setTimeout(() => {
       setIsAlertMessage(() => null);
-      setSubmitting(false);
-      resetForm();
-    }, 2000);
+    }, 3000);
   };
 
   return (

@@ -16,7 +16,7 @@ To ensure proper form handling, two libraries were used: Formik for managing for
 
 The UI of the application was created using the Material UI library, which offers many ready-made components, and styled-components, which allows for easy creation of custom styles for components.
 
-Tests were implemented using React Testing Library along with Jest.
+Tests were implemented using React Testing Library along with Jest(in the future).
 
 To maintain a consistent style and syntax in the project, tools such as ESLint and Prettier were used, and their rules were defined in configuration files.
 
