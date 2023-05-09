@@ -7,9 +7,14 @@ export interface DishDataModal {
   diameter?: number;
   spiciness_scale?: number;
   slices_of_bread?: number | null;
-  submit?: string | undefined;
 }
 
 export interface ConditionallyProps {
   type: DishType;
+}
+
+export type AlertType = 'success' | 'info' | 'error';
+export interface AlertData {
+  message: string;
+  type: AlertType;
 }

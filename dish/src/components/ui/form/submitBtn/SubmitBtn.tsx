@@ -1,4 +1,4 @@
-import { Loader } from '../loder/Loder';
+import { Loader } from '../../loder/Loder';
 import { SubmitBtnStyle } from './SubmitBtnStyles.styles';
 interface SubmitBtnProps {
   disabled: boolean;

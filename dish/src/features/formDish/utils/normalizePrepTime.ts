@@ -12,8 +12,6 @@ export const normalizePrepTime = (value: string) => {
         return '';
       }
     }
-    const arr = value.split(' ');
-    console.log(arr);
     return (
       value
         .replace(/\s/g, '')

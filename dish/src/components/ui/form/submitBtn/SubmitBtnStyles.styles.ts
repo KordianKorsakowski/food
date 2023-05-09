@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import styled from 'styled-components';
-import { colors } from '../../../theme/colors';
-import { device } from '../../../theme/breakpoints';
+import { colors } from '../../../../theme/colors';
+import { device } from '../../../../theme/breakpoints';
 
 export const SubmitBtnStyle = styled(Button)<{ disabled: boolean }>`
   max-width: max-content;

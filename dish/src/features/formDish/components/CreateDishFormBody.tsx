@@ -1,4 +1,4 @@
-import { Alert, TextField, Grid, MenuItem } from '@mui/material';
+import { TextField, Grid, MenuItem } from '@mui/material';
 import { DishDataModal } from '../types/types';
 import { useFormikContext } from 'formik';
 import React from 'react';
@@ -26,12 +26,6 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
 
   return (
     <form noValidate onSubmit={handleSubmit}>
-      {errors.submit === 'error' && (
-        <Alert severity="error">{errors.submit}</Alert>
-      )}
-      {errors.submit === 'success' && (
-        <Alert severity="success">{errors.submit}</Alert>
-      )}
       <Container>
         <h4>Create Your Dish</h4>
         <Grid container spacing={2}>
@@ -39,7 +33,7 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
             <TextField
               name="name"
               label={'Name'}
-              value={values.name}
+              value={values.name || ''}
               fullWidth
               helperText={touched.name && errors.name}
               error={Boolean(touched.name && errors.name)}
@@ -53,7 +47,7 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
               type="string"
               name="preparation_time"
               label={'Preparation time'}
-              value={values.preparation_time}
+              value={values.preparation_time || ''}
               fullWidth
               helperText={touched.preparation_time && errors.preparation_time}
               error={Boolean(
@@ -73,7 +67,7 @@ export const CreateDishFormBody: React.FC<FormDishBodyProps> = ({
               select
               name="type"
               label={'Type'}
-              value={values.type}
+              value={values.type || ''}
               fullWidth
               helperText={touched.type && errors.type}
               error={Boolean(touched.type && errors.type)}

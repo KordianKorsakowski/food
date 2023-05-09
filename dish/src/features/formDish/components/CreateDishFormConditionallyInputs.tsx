@@ -32,7 +32,7 @@ export const CreateDishFormConditionallyInputs: React.FC<
               type="string"
               name="no_of_slices"
               label={'No. of slices(1-100)'}
-              value={values.no_of_slices}
+              value={values.no_of_slices || ''}
               fullWidth
               onBlur={handleBlur}
               helperText={touched.no_of_slices && errors.no_of_slices}
@@ -73,7 +73,7 @@ export const CreateDishFormConditionallyInputs: React.FC<
           <FormLabel>Spiciness scale *</FormLabel>
           <RadioGroup
             name="spiciness_scale"
-            value={values.spiciness_scale}
+            value={values.spiciness_scale || ''}
             onChange={handleChange}
             row
           >

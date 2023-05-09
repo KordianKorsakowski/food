@@ -1,22 +1,16 @@
 import { useFormikContext } from 'formik';
 import { CreateDishFormBody } from './CreateDishFormBody';
-import { DishDataModal } from '../types/types';
-import { Button } from '@mui/material';
+import { AlertData, DishDataModal } from '../types/types';
 import { createDishAPI } from '../api/createDishAPI';
 import { setPayload } from '../utils/setPayload';
 import { useState } from 'react';
-import { Loader } from '../../../components/ui/loder/Loder';
-import { SubmitBtn } from '../../../components/ui/submitBtn/SubmitBtn';
+import { SubmitBtn } from '../../../components/ui/form/submitBtn/SubmitBtn';
+import { AlertForm } from '../../../components/ui/form/Alert';
 export const CreateDishFormLogic = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { values, isValid, resetForm, setSubmitting, setErrors, dirty } =
+  const [isAlertMessage, setIsAlertMessage] = useState<AlertData | null>(null);
+  const { values, isValid, resetForm, setSubmitting, dirty } =
     useFormikContext<DishDataModal>();
-  const setMessage = (str: string) => {
-    console.log(str);
-    setErrors({
-      submit: str,
-    });
-  };
 
   const submitHandler = async () => {
     const data: DishDataModal | undefined = setPayload(values);
@@ -26,26 +20,36 @@ export const CreateDishFormLogic = () => {
         {
           ...data,
         },
-        setMessage
+        setIsAlertMessage
       ).finally(() => {
         setIsLoading(false);
       });
     }
     setTimeout(() => {
+      setIsAlertMessage(() => null);
       setSubmitting(false);
       resetForm();
     }, 2000);
   };
+
   return (
-    <CreateDishFormBody
-      submitButton={
-        <SubmitBtn
-          disabled={!(isValid && dirty)}
-          submitFn={submitHandler}
-          isLoading={isLoading}
-          text={'Create'}
+    <>
+      {isAlertMessage && (
+        <AlertForm
+          type={isAlertMessage.type}
+          message={isAlertMessage.message}
         />
-      }
-    />
+      )}
+      <CreateDishFormBody
+        submitButton={
+          <SubmitBtn
+            disabled={!(isValid && dirty)}
+            submitFn={submitHandler}
+            isLoading={isLoading}
+            text={'Create'}
+          />
+        }
+      />
+    </>
   );
 };
