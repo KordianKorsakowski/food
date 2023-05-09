@@ -3,7 +3,7 @@
 Currently used and tested, stable Nodejs version - 16.15.1
 Stack - Typescript, React.js, Formik, Yup, Axios, React Testing Library, Jest, Material UI, styled-components
 Hosting - Netlify
-[page](https://kaleidoscopic-medovik-7daf4f.netlify.app)
+## [LIVE](https://kaleidoscopic-medovik-7daf4f.netlify.app) https://kaleidoscopic-medovik-7daf4f.netlify.app
 
 (To enable yarn in Node.js >= 16.10):
 ## General Info 
@@ -81,5 +81,5 @@ food/dish> yarn lint-check
 ### History :) 
 While working on the same task a year ago, I noticed many areas for improvement. In the meantime, I had the opportunity to learn many new technologies and approaches that helped me develop my skills. As a result, now that I am revisiting the task, I am able to see more possibilities and better understand which areas require attention and improvement. With the skills I have acquired, my approach to the problem has greatly improved, resulting in a more clear and well-organized code that is definitely more efficient.
 [github](https://github.com/KordianKorsakowski/dish)
-[page](https://cool-ganache-3a1616.netlify.app/)
+[old page (1year ago)](https://cool-ganache-3a1616.netlify.app/)
    
