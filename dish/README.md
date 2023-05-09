@@ -76,3 +76,9 @@ food/dish> yarn lint-check
 13/ Add SubmitBtn - 0.2h
 14/ Handling responses and errors - 2h
 15/ Add AlertForm - 0.2h
+
+### History :) 
+While working on the same task a year ago, I noticed many areas for improvement. In the meantime, I had the opportunity to learn many new technologies and approaches that helped me develop my skills. As a result, now that I am revisiting the task, I am able to see more possibilities and better understand which areas require attention and improvement. With the skills I have acquired, my approach to the problem has greatly improved, resulting in a more clear and well-organized code that is definitely more efficient.
+[github](https://github.com/KordianKorsakowski/dish)
+[page](https://cool-ganache-3a1616.netlify.app/)
+   
